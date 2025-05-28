@@ -1,0 +1,215 @@
+No files changed, compilation skipped
+
+Ran 5 tests for test/InscriptionFactory.t.sol:InscriptionFactoryTest
+[PASS] testBuyMeme() (gas: 353308)
+[PASS] testDeployInscription() (gas: 225018)
+[FAIL: ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)] testLiquidityAdded() (gas: 365777)
+Traces:
+  [365777] InscriptionFactoryTest::testLiquidityAdded()
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return]
+    ├─ [204326] InscriptionFactory::deployInscription("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   ├─ [9031] → new <unknown>@0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1
+    │   │   └─ ← [Return] 45 bytes of code
+    │   ├─ [114626] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::initialize("TEST", 1000, 10, 1000000000000000000 [1e18], InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459])
+    │   │   ├─ [111921] InscriptionToken::initialize("TEST", 1000, 10, 1000000000000000000 [1e18], InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459]) [delegatecall]
+    │   │   │   └─ ← [Stop]
+    │   │   └─ ← [Return]
+    │   ├─ emit TokenDeployed(token: 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1, creator: SHA-256: [0x0000000000000000000000000000000000000002], symbol: "TEST")
+    │   └─ ← [Return] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1
+    ├─ [0] VM::deal(SHA-256: [0x0000000000000000000000000000000000000002], 20000000000000000000 [2e19])
+    │   └─ ← [Return]
+    ├─ [0] VM::recordLogs()
+    │   └─ ← [Return]
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return]
+    ├─ [142294] InscriptionFactory::mintInscription{value: 10000000000000000000}(0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1)
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [549] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::price() [staticcall]
+    │   │   ├─ [383] InscriptionToken::price() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [24936] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   ├─ [24758] InscriptionToken::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10) [delegatecall]
+    │   │   │   ├─ emit Approval(owner: InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], spender: MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], value: 10)
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ [47597] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::mint(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   ├─ [47428] InscriptionToken::mint(SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: SHA-256: [0x0000000000000000000000000000000000000002], value: 10)
+    │   │   │   └─ ← [Stop]
+    │   │   └─ ← [Return]
+    │   ├─ [0] 0x00000000000000000000000000000000000003E7::fallback{value: 500000000000000000}()
+    │   │   └─ ← [Stop]
+    │   ├─ [60] PRECOMPILES::sha256{value: 9500000000000000000}(0x)
+    │   │   └─ ← [Return] 0xe3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [2936] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   ├─ [2758] InscriptionToken::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10) [delegatecall]
+    │   │   │   ├─ emit Approval(owner: InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], spender: MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], value: 10)
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [4745] MockUniswapRouter::addLiquidityETH{value: 500000000000000000}(0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1, 10, 0, 0, InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], 1)
+    │   │   ├─ [3934] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::transferFrom(InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   │   ├─ [3742] InscriptionToken::transferFrom(InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10) [delegatecall]
+    │   │   │   │   └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+    │   │   │   └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+    │   │   └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+    │   └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+    └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+
+[FAIL: ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)] testMaxSupply() (gas: 365494)
+Traces:
+  [365494] InscriptionFactoryTest::testMaxSupply()
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return]
+    ├─ [204326] InscriptionFactory::deployInscription("TEST", 100, 10, 1000000000000000000 [1e18])
+    │   ├─ [9031] → new <unknown>@0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1
+    │   │   └─ ← [Return] 45 bytes of code
+    │   ├─ [114626] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::initialize("TEST", 100, 10, 1000000000000000000 [1e18], InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459])
+    │   │   ├─ [111921] InscriptionToken::initialize("TEST", 100, 10, 1000000000000000000 [1e18], InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459]) [delegatecall]
+    │   │   │   └─ ← [Stop]
+    │   │   └─ ← [Return]
+    │   ├─ emit TokenDeployed(token: 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1, creator: SHA-256: [0x0000000000000000000000000000000000000002], symbol: "TEST")
+    │   └─ ← [Return] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1
+    ├─ [0] VM::deal(SHA-256: [0x0000000000000000000000000000000000000002], 100000000000000000000 [1e20])
+    │   └─ ← [Return]
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return]
+    ├─ [142294] InscriptionFactory::mintInscription{value: 10000000000000000000}(0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1)
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [549] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::price() [staticcall]
+    │   │   ├─ [383] InscriptionToken::price() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [24936] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   ├─ [24758] InscriptionToken::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10) [delegatecall]
+    │   │   │   ├─ emit Approval(owner: InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], spender: MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], value: 10)
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ [47597] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::mint(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   ├─ [47428] InscriptionToken::mint(SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: SHA-256: [0x0000000000000000000000000000000000000002], value: 10)
+    │   │   │   └─ ← [Stop]
+    │   │   └─ ← [Return]
+    │   ├─ [0] 0x00000000000000000000000000000000000003E7::fallback{value: 500000000000000000}()
+    │   │   └─ ← [Stop]
+    │   ├─ [60] PRECOMPILES::sha256{value: 9500000000000000000}(0x)
+    │   │   └─ ← [Return] 0xe3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [2936] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   ├─ [2758] InscriptionToken::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10) [delegatecall]
+    │   │   │   ├─ emit Approval(owner: InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], spender: MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], value: 10)
+    │   │   │   └─ ← [Return] true
+    │   │   └─ ← [Return] true
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [4745] MockUniswapRouter::addLiquidityETH{value: 500000000000000000}(0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1, 10, 0, 0, InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], 1)
+    │   │   ├─ [3934] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::transferFrom(InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   │   ├─ [3742] InscriptionToken::transferFrom(InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10) [delegatecall]
+    │   │   │   │   └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+    │   │   │   └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+    │   │   └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+    │   └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+    └─ ← [Revert] ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)
+
+[FAIL: ERC20InsufficientAllowance(0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, 0, 10)] testMintInscription() (gas: 340274)
+Traces:
+  [340274] InscriptionFactoryTest::testMintInscription()
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return]
+    ├─ [204326] InscriptionFactory::deployInscription("TEST", 1000, 10, 1000000000000000000 [1e18])
+    │   ├─ [9031] → new <unknown>@0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1
+    │   │   └─ ← [Return] 45 bytes of code
+    │   ├─ [114626] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::initialize("TEST", 1000, 10, 1000000000000000000 [1e18], InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459])
+    │   │   ├─ [111921] InscriptionToken::initialize("TEST", 1000, 10, 1000000000000000000 [1e18], InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459]) [delegatecall]
+    │   │   │   └─ ← [Stop]
+    │   │   └─ ← [Return]
+    │   ├─ emit TokenDeployed(token: 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1, creator: SHA-256: [0x0000000000000000000000000000000000000002], symbol: "TEST")
+    │   └─ ← [Return] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1
+    ├─ [0] VM::deal(SHA-256: [0x0000000000000000000000000000000000000002], 20000000000000000000 [2e19])
+    │   └─ ← [Return]
+    ├─ [0] VM::mockCall(0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1, 0x095ea7b30000000000000000000000005615deb798bb3e4dfa0139dfa1b3d433cc23b72f000000000000000000000000000000000000000000000000000000000000000a, 0x0000000000000000000000000000000000000000000000000000000000000001)
+    │   └─ ← [Return]
+    ├─ [0] VM::prank(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   └─ ← [Return]
+    ├─ [113622] InscriptionFactory::mintInscription{value: 10000000000000000000}(0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1)
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [549] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::price() [staticcall]
+    │   │   ├─ [383] InscriptionToken::price() [delegatecall]
+    │   │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   │   └─ ← [Return] 1000000000000000000 [1e18]
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [0] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   └─ ← [Return] true
+    │   ├─ [47597] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::mint(SHA-256: [0x0000000000000000000000000000000000000002])
+    │   │   ├─ [47428] InscriptionToken::mint(SHA-256: [0x0000000000000000000000000000000000000002]) [delegatecall]
+    │   │   │   ├─ emit Transfer(from: 0x0000000000000000000000000000000000000000, to: SHA-256: [0x0000000000000000000000000000000000000002], value: 10)
+    │   │   │   └─ ← [Stop]
+    │   │   └─ ← [Return]
+    │   ├─ [0] 0x00000000000000000000000000000000000003E7::fallback{value: 500000000000000000}()
+    │   │   └─ ← [Stop]
+    │   ├─ [60] PRECOMPILES::sha256{value: 9500000000000000000}(0x)
+    │   │   └─ ← [Return] 0xe3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [0] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::approve(MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   └─ ← [Return] true
+    │   ├─ [528] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::perMint() [staticcall]
+    │   │   ├─ [362] InscriptionToken::perMint() [delegatecall]
+    │   │   │   └─ ← [Return] 10
+    │   │   └─ ← [Return] 10
+    │   ├─ [3945] MockUniswapRouter::addLiquidityETH{value: 500000000000000000}(0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1, 10, 0, 0, InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], 1)
+    │   │   ├─ [3134] 0x0636b2c3241e32Be3dD768C063D278d9ba7bbcB1::transferFrom(InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10)
+    │   │   │   ├─ [2942] InscriptionToken::transferFrom(InscriptionFactory: [0x522B3294E6d06aA25Ad0f1B8891242E335D3B459], MockUniswapRouter: [0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f], 10) [delegatecall]
+    │   │   │   │   └─ ← [Revert] ERC20InsufficientAllowance(0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, 0, 10)
+    │   │   │   └─ ← [Revert] ERC20InsufficientAllowance(0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, 0, 10)
+    │   │   └─ ← [Revert] ERC20InsufficientAllowance(0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, 0, 10)
+    │   └─ ← [Revert] ERC20InsufficientAllowance(0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, 0, 10)
+    └─ ← [Revert] ERC20InsufficientAllowance(0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, 0, 10)
+
+Suite result: FAILED. 2 passed; 3 failed; 0 skipped; finished in 16.83ms (15.42ms CPU time)
+
+Ran 1 test suite in 373.41ms (16.83ms CPU time): 2 tests passed, 3 failed, 0 skipped (5 total tests)
+
+Failing tests:
+Encountered 3 failing tests in test/InscriptionFactory.t.sol:InscriptionFactoryTest
+[FAIL: ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)] testLiquidityAdded() (gas: 365777)
+[FAIL: ERC20InsufficientBalance(0x522B3294E6d06aA25Ad0f1B8891242E335D3B459, 0, 10)] testMaxSupply() (gas: 365494)
+[FAIL: ERC20InsufficientAllowance(0x5615dEB798BB3E4dFa0139dFa1b3D433Cc23b72f, 0, 10)] testMintInscription() (gas: 340274)
+
+Encountered a total of 3 failing tests, 2 tests succeeded
